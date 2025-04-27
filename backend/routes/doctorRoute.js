@@ -1,7 +1,7 @@
 import express from 'express'
 import { doctorList,loginDoctor,appointmentDoctor,appointmentCancel,appointmentComplete,doctorDashboard, doctorProfile, updateDoctorProfile} from '../controllers/doctorController.js'
 //loginDoctor,appointmentDoctor,appointmentCancel,appointmentComplete,doctorDashboard, doctorProfile, updateDoctorProfile
-clear]import authDoctor from '../middlewares/authDoctor.js'
+import authDoctor from '../middlewares/authDoctor.js'
 const doctorRouter= express.Router()
 
 doctorRouter.get('/list',doctorList)
