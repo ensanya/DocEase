@@ -8,7 +8,7 @@ const AdminContextProvider=(props)=>{
     const[appointments,setAppointments]= useState([])
     const [aToken,setAToken]= useState(localStorage.getItem('aToken')?localStorage.getItem('aToken'):'')
     const [doctors,setDoctors]= useState([])
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://backend-docease-lxka.onrender.com';
     const getAllDoctors= async()=>{
       try{
          const {data}= await axios.post(backendUrl+`/api/admin/all-doctors`,{},{headers:{aToken}}) 
@@ -62,7 +62,7 @@ const cancelAppointment=async(appointmentId)=>{
             toast.success(data.message)
             getAllappointments();
         }else {
-          
+            toast.error("Something went wrong!");
         }
     }catch(error){
         toast.error(error.message)
